@@ -1,0 +1,11 @@
+on run {targetBuddyPhone, targetMessage}
+	tell application "Messages"
+		set messageList to words of targetMessage
+		set targetService to 1st service whose service type = iMessage
+		set targetBuddy to buddy targetBuddyPhone of targetService
+		repeat with aWord in messageList
+			send aWord to targetBuddy
+			delay 0.5
+		end repeat
+	end tell
+end run
